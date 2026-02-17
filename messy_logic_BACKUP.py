@@ -5,24 +5,25 @@ Use this version to show the RED pipeline failure.
 Cyclomatic Complexity: 33 (TERRIBLE!)
 
 TO USE THIS VERSION:
-1. Copy this entire file content
-2. Replace the content of messy_logic.py
-3. Push to GitHub
-4. Watch the pipeline FAIL with complexity error
+1. Run: cp messy_logic_BACKUP.py messy_logic.py
+2. Commit and push to GitHub
+3. Watch the pipeline FAIL with complexity error
 """
 
-def calculate_student_grade(score, attendance, assignments_completed, participation, 
-                           extra_credit, late_submissions, group_project_score,
-                           midterm_score, final_exam_score, is_honors_student):
+
+def calculate_student_grade(score, attendance, assignments_completed,
+                             participation, extra_credit, late_submissions,
+                             group_project_score, midterm_score,
+                             final_exam_score, is_honors_student):
     """
     Calculate final grade for a student based on multiple criteria.
-    
+
     WARNING: This function has TERRIBLE cyclomatic complexity (33)!
     It violates the Single Responsibility Principle and is unmaintainable.
     """
-    
+
     final_grade = "F"
-    
+
     # Nested if/else hell begins here! (33 decision points)
     if score >= 90:
         if attendance >= 90:
@@ -118,7 +119,7 @@ def calculate_student_grade(score, attendance, assignments_completed, participat
                             final_grade = "F"
                     else:
                         final_grade = "F"
-    
+
     return final_grade
 
 
@@ -126,29 +127,29 @@ def calculate_student_grade(score, attendance, assignments_completed, participat
 if __name__ == "__main__":
     # Test case 1: Excellent student
     grade = calculate_student_grade(
-        score=95, 
-        attendance=95, 
+        score=95,
+        attendance=95,
         assignments_completed=16,
-        participation=90, 
-        extra_credit=5, 
+        participation=90,
+        extra_credit=5,
         late_submissions=0,
-        group_project_score=90, 
-        midterm_score=88, 
+        group_project_score=90,
+        midterm_score=88,
         final_exam_score=92,
         is_honors_student=True
     )
     print(f"Excellent student grade: {grade}")
-    
+
     # Test case 2: Average student
     grade = calculate_student_grade(
-        score=75, 
-        attendance=80, 
+        score=75,
+        attendance=80,
         assignments_completed=13,
-        participation=70, 
-        extra_credit=0, 
+        participation=70,
+        extra_credit=0,
         late_submissions=2,
-        group_project_score=75, 
-        midterm_score=72, 
+        group_project_score=75,
+        midterm_score=72,
         final_exam_score=78,
         is_honors_student=False
     )
